@@ -14,11 +14,11 @@ public final class DataGenerator {
 	}
 	
 	public final void generateDataFile() throws IOException {
-		String line;
-		do {
+		String line = csvFile.readNextLine();
+		while (line != null) {
 			line = csvFile.readNextLine();
 			dataFile.writeLine(line);
-		} while (line != null);
+		}
 		csvFile.closeFile();
 		dataFile.closeFile();
 	}
